@@ -7,7 +7,7 @@
 </head>
 <body>
     @foreach($users as $user)
-    <h1> {{$user}} </h1>
+    <p>{{$user->name}} - {{ $user->email}}</p>
     @endforeach
 </body>
 </html>
