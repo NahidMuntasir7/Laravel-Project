@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    @foreach($users as $user)
-    <p>{{$user->name}} - {{ $user->email}}</p>
-    @endforeach
-</body>
-</html>
+@extends('layouts.app')
+
+@section('title', 'User List')
+
+@section('content')
+    <ul>
+        @if (count($users) > 0)
+            @foreach ($users as $user)
+                <li>
+                    <a href="/users/{{ $user->id }}">{{ $user->name }}</a>
+                </li>
+            @endforeach
+        @else
+            <p>No users found.</p>
+        @endif
+    </ul>
+@endsection
